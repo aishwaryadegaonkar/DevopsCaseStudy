@@ -4,7 +4,7 @@ pipeline{
     stage("Bulid"){
       steps{
         script {
-          sh 'mvn clean package',
+          sh 'mvn clean package'
           echo 'building the project'
         }
     }
