@@ -3,24 +3,24 @@ pipeline{
   stages{
     stage("Bulid"){
       steps{
-        mvn clean package
+        mvn clean package,
           echo 'building the project'
     }
      stage("test"){
        steps{
-         mvn clean test
+         mvn clean test,
           echo 'testing the project '
        }
     }
      stage("deploy"){
        steps{
-         mvn package tomcat7:deploy
+         mvn package tomcat7:deploy,
           echo 'deploying the project '
        }
     }
      stage("server"){
        steps{
-          mvn package tomcat7:run
+          mvn package tomcat7:run,
           echo 'deploying the project '
        }
     }
