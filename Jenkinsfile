@@ -11,7 +11,7 @@ pipeline{
      stage("test"){
        steps{
          script {
-         sh 'mvn clean test',
+         sh 'mvn clean test'
           echo 'testing the project '
          }
        }
@@ -19,7 +19,7 @@ pipeline{
      stage("deploy"){
        steps{
          script {
-        sh  'mvn  tomcat7:deploy',
+        sh  'mvn  tomcat7:deploy'
           echo 'deploying the project '
          }
        }
@@ -27,7 +27,7 @@ pipeline{
      stage("server"){
        steps{
          script {
-        sh 'mvn tomcat7:run',
+        sh 'mvn tomcat7:run'
           echo 'deploying the project '
          }
        }
