@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building the project'
-                    sh 'mvn clean package'
+                    bat 'mvn clean package'
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     echo 'Testing the project'
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying the project'
-                    sh 'mvn tomcat7:deploy'
+                    bat 'mvn tomcat7:deploy'
                 }
             }
         }
@@ -29,7 +29,8 @@ pipeline {
             steps {
                 script {
                     echo 'Running the project'
-                    sh 'mvn tomcat7:run'
+                    // Using 'start' to run it in the background
+                    bat 'start mvn tomcat7:run'
                 }
             }
         }
