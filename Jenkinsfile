@@ -4,14 +4,14 @@ pipeline{
     stage("Bulid"){
       steps{
         script {
-          mvn clean package,
+          sh 'mvn clean package',
           echo 'building the project'
         }
     }
      stage("test"){
        steps{
          script {
-         mvn clean test,
+         sh 'mvn clean test',
           echo 'testing the project '
          }
        }
@@ -19,7 +19,7 @@ pipeline{
      stage("deploy"){
        steps{
          script {
-         mvn package tomcat7:deploy,
+        sh  'mvn  tomcat7:deploy',
           echo 'deploying the project '
          }
        }
@@ -27,7 +27,7 @@ pipeline{
      stage("server"){
        steps{
          script {
-          mvn package tomcat7:run,
+        sh 'mvn tomcat7:run',
           echo 'deploying the project '
          }
        }
