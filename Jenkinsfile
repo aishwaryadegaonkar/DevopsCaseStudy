@@ -4,34 +4,45 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    mvn clean package
                     echo 'Building the project'
+                    sh 'mvn clean package'
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    mvn clean test
                     echo 'Testing the project'
+                    sh 'mvn test'
                 }
             }
         }
         stage('Deploy') {
             steps {
                 script {
-                    mvn tomcat7:deploy
                     echo 'Deploying the project'
+                    sh 'mvn tomcat7:deploy'
                 }
             }
         }
         stage('Server') {
             steps {
                 script {
-                    mvn tomcat7:run
                     echo 'Running the project'
+                    sh 'mvn tomcat7:run'
                 }
             }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished!'
+        }
+        success {
+            echo 'Pipeline executed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
