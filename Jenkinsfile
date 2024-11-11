@@ -17,14 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    echo 'Deploying the project'
-                    bat 'mvn tomcat7:deploy'
-                }
-            }
-        }
+       
         stage('Server') {
             steps {
                 script {
